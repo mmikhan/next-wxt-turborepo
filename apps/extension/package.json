@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "NODE_OPTIONS='--no-experimental-webstorage' wxt",
+    "dev": "NODE_OPTIONS='--no-experimental-webstorage' wxt --port 3001",
     "dev:firefox": "NODE_OPTIONS='--no-experimental-webstorage' wxt -b firefox",
     "build": "NODE_OPTIONS='--no-experimental-webstorage' wxt build",
     "build:firefox": "NODE_OPTIONS='--no-experimental-webstorage' wxt build -b firefox",
