@@ -21,10 +21,10 @@
       },
       "devDependencies": {
         "@repo/eslint-config": "*",
-        "@repo/typescript-config": "*",
         "@types/node": "^22.15.3",
         "@types/react": "19.2.2",
         "@types/react-dom": "19.2.2",
+        "@workspace/typescript-config": "workspace:*",
         "eslint": "^9.39.1",
         "typescript": "5.9.2",
       },
@@ -44,6 +44,7 @@
         "@types/react": "catalog:",
         "@types/react-dom": "catalog:",
         "@workspace/tailwind-config": "workspace:*",
+        "@workspace/typescript-config": "workspace:*",
         "babel-plugin-react-compiler": "catalog:",
         "tailwindcss": "catalog:",
         "typescript": "catalog:",
@@ -60,12 +61,12 @@
       },
       "devDependencies": {
         "@repo/eslint-config": "*",
-        "@repo/typescript-config": "*",
         "@tailwindcss/postcss": "catalog:",
         "@types/node": "^22.15.3",
         "@types/react": "19.2.2",
         "@types/react-dom": "19.2.2",
         "@workspace/tailwind-config": "workspace:*",
+        "@workspace/typescript-config": "workspace:*",
         "eslint": "^9.39.1",
         "postcss": "catalog:",
         "tailwindcss": "catalog:",
@@ -100,8 +101,8 @@
       },
     },
     "packages/typescript-config": {
-      "name": "@repo/typescript-config",
-      "version": "0.0.0",
+      "name": "@workspace/typescript-config",
+      "version": "1.0.0",
     },
     "packages/ui": {
       "name": "@repo/ui",
@@ -112,10 +113,10 @@
       },
       "devDependencies": {
         "@repo/eslint-config": "*",
-        "@repo/typescript-config": "*",
         "@types/node": "^22.15.3",
         "@types/react": "19.2.2",
         "@types/react-dom": "19.2.2",
+        "@workspace/typescript-config": "workspace:*",
         "eslint": "^9.39.1",
         "typescript": "5.9.2",
       },
@@ -290,8 +291,6 @@
 
     "@repo/eslint-config": ["@repo/eslint-config@workspace:packages/eslint-config"],
 
-    "@repo/typescript-config": ["@repo/typescript-config@workspace:packages/typescript-config"],
-
     "@repo/ui": ["@repo/ui@workspace:packages/ui"],
 
     "@swc/helpers": ["@swc/helpers@0.5.15", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g=="],
@@ -359,6 +358,8 @@
     "@typescript-eslint/visitor-keys": ["@typescript-eslint/visitor-keys@8.47.0", "", { "dependencies": { "@typescript-eslint/types": "8.47.0", "eslint-visitor-keys": "^4.2.1" } }, "sha512-SIV3/6eftCy1bNzCQoPmbWsRLujS8t5iDIZ4spZOBHqrM+yfX2ogg8Tt3PDTAVKw3sSCiUgg30uOAvK2r9zGjQ=="],
 
     "@workspace/tailwind-config": ["@workspace/tailwind-config@workspace:packages/tailwind-config"],
+
+    "@workspace/typescript-config": ["@workspace/typescript-config@workspace:packages/typescript-config"],
 
     "acorn": ["acorn@8.15.0", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg=="],
 

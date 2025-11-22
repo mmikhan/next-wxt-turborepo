@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
     "@workspace/tailwind-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
     "tailwindcss": "catalog:",
     "@tailwindcss/postcss": "catalog:",
     "postcss": "catalog:",

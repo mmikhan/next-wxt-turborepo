@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@workspace/tailwind-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
     "tailwindcss": "catalog:",
     "@tailwindcss/postcss": "catalog:",
     "@biomejs/biome": "catalog:",
