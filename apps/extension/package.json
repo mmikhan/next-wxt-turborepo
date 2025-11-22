@@ -5,14 +5,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "wxt",
-    "dev:firefox": "wxt -b firefox",
-    "build": "wxt build",
-    "build:firefox": "wxt build -b firefox",
-    "zip": "wxt zip",
-    "zip:firefox": "wxt zip -b firefox",
+    "dev": "NODE_OPTIONS='--no-experimental-webstorage' wxt",
+    "dev:firefox": "NODE_OPTIONS='--no-experimental-webstorage' wxt -b firefox",
+    "build": "NODE_OPTIONS='--no-experimental-webstorage' wxt build",
+    "build:firefox": "NODE_OPTIONS='--no-experimental-webstorage' wxt build -b firefox",
+    "zip": "NODE_OPTIONS='--no-experimental-webstorage' wxt zip",
+    "zip:firefox": "NODE_OPTIONS='--no-experimental-webstorage' wxt zip -b firefox",
     "compile": "tsc --noEmit",
-    "postinstall": "wxt prepare"
+    "postinstall": "NODE_OPTIONS='--no-experimental-webstorage' wxt prepare"
   },
   "dependencies": {
     "react": "^19.1.1",
