@@ -5,6 +5,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "fix": "turbo run fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
@@ -26,6 +27,9 @@
     "tailwindcss": "^4",
     "@tailwindcss/postcss": "^4",
     "postcss": "^8",
+    "@biomejs/biome": "^2",
+    "lefthook": "^2",
+    "ultracite": "^6",
     "typescript": "^5"
   }
 }

@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "scripts": {
+    "lint": "bun x ultracite check",
+    "fix": "bun x ultracite fix"
+  },
   "exports": {
     ".": "./style.css"
   },
   "devDependencies": {
-    "tailwindcss": "catalog:"
+    "tailwindcss": "catalog:",
+    "@biomejs/biome": "catalog:",
+    "lefthook": "catalog:",
+    "ultracite": "catalog:"
   }
 }
