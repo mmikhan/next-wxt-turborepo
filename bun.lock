@@ -65,6 +65,13 @@
         "typescript-eslint": "^8.46.3",
       },
     },
+    "packages/tailwind-config": {
+      "name": "@workspace/tailwind-config",
+      "version": "1.0.0",
+      "devDependencies": {
+        "tailwindcss": "catalog:",
+      },
+    },
     "packages/typescript-config": {
       "name": "@repo/typescript-config",
       "version": "0.0.0",

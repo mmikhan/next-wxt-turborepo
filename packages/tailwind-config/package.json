@@ -1,0 +1,12 @@
+{
+  "name": "@workspace/tailwind-config",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./style.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "catalog:"
+  }
+}
