@@ -6,8 +6,8 @@
     "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check",
-    "fix": "biome format --write",
+    "lint": "bun x ultracite check",
+    "fix": "bun x ultracite fix",
     "type-check": "next typegen && tsc --noEmit"
   },
   "dependencies": {
@@ -23,11 +23,13 @@
     "@workspace/typescript-config": "workspace:*",
     "tailwindcss": "catalog:",
     "@tailwindcss/postcss": "catalog:",
-    "@biomejs/biome": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "babel-plugin-react-compiler": "catalog:",
+    "@biomejs/biome": "catalog:",
+    "lefthook": "catalog:",
+    "ultracite": "catalog:",
     "typescript": "catalog:"
   }
 }

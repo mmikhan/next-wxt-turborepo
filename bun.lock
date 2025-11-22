@@ -30,8 +30,10 @@
         "@workspace/tailwind-config": "workspace:*",
         "@workspace/typescript-config": "workspace:*",
         "babel-plugin-react-compiler": "catalog:",
+        "lefthook": "catalog:",
         "tailwindcss": "catalog:",
         "typescript": "catalog:",
+        "ultracite": "catalog:",
       },
     },
     "packages/eslint-config": {
