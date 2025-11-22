@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["ultracite/core"],
+  // temporary workaround for biome bug biomejs/biome#7942
+  // exclude nested biome configs
+  "files": {
+    "includes": ["**", "!apps", "!packages"]
+  }
+}
