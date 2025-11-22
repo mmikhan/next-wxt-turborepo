@@ -16,6 +16,7 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
+    "@workspace/tailwind-config": "workspace:*",
     "tailwindcss": "catalog:",
     "@tailwindcss/postcss": "catalog:",
     "@biomejs/biome": "catalog:",
