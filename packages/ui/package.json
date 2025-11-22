@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
+    "lint": "bun x ultracite check",
+    "fix": "bun x ultracite fix",
     "type-check": "tsc --noEmit"
   },
   "exports": {
@@ -31,10 +32,11 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
-    "@repo/eslint-config": "workspace:*",
     "@workspace/tailwind-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
-    "eslint": "^9.39.1",
+    "lefthook": "^2.0.4",
+    "@biomejs/biome": "catalog:",
+    "ultracite": "catalog:",
     "typescript": "catalog:"
   }
 }
