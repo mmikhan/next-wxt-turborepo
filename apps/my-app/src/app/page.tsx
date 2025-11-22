@@ -1,4 +1,6 @@
 import Image from "next/image";
+import {Button} from '@workspace/ui/components/button'
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Home() {
   return (
@@ -62,6 +64,9 @@ export default function Home() {
           >
             Documentation
           </a>
+
+          <Button variant='destructive'>UI Button</Button>
+          <ModeToggle />
         </div>
       </main>
     </div>
