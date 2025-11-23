@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import reactLogo from '@/assets/react.svg';
 import wxtLogo from '/wxt.svg';
+import "@workspace/ui/globals.css"; 
 import './App.css';
-import "@workspace/tailwind-config";
+import { Button } from '@workspace/ui/components/button';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ function App() {
         </a>
       </div>
       <h1 className="text-3xl font-bold underline text-amber-300">WXT + React</h1>
+      <Button variant='destructive'>Button from UI Package</Button>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
