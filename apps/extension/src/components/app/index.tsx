@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "@/assets/react.svg";
 import wxtLogo from "/wxt.svg";
-import "./App.css";
+import "./style.css";
 import { Button } from "@workspace/ui/components/button";
 
 function App() {

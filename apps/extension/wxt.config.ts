@@ -4,6 +4,6 @@ import { defineConfig } from "wxt";
 export default defineConfig({
   imports: false,
   srcDir: "src",
-  entrypointsDir: 'app',
+  entrypointsDir: "app",
   modules: ["@wxt-dev/module-react"],
 });
