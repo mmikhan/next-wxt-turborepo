@@ -45,7 +45,6 @@
         "@types/node": "catalog:",
         "@types/react": "catalog:",
         "@types/react-dom": "catalog:",
-        "@workspace/tailwind-config": "workspace:*",
         "@workspace/typescript-config": "workspace:*",
         "babel-plugin-react-compiler": "catalog:",
         "lefthook": "catalog:",
