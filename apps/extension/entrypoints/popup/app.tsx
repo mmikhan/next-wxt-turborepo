@@ -1,7 +1,6 @@
 import { useState } from "react";
 import reactLogo from "@/assets/react.svg";
 import wxtLogo from "/wxt.svg";
-import "@workspace/ui/globals.css";
 import "./App.css";
 import { Button } from "@workspace/ui/components/button";
 
@@ -33,14 +32,14 @@ function App() {
       <h1 className="font-bold text-3xl text-amber-300 underline">
         WXT + React
       </h1>
-      <Button variant="destructive">Button from UI Package</Button>
       <div className="card">
-        <button
+        <Button
           onClick={() => setCount((prevCount) => prevCount + 1)}
           type="button"
+          variant="destructive"
         >
           count is {count}
-        </button>
+        </Button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

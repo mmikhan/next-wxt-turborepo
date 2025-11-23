@@ -23,7 +23,9 @@
     "@workspace/ui": "workspace:*"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "catalog:",
+    "tailwindcss": "catalog:",
+    "@tailwindcss/postcss": "catalog:",
+    "postcss": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@wxt-dev/module-react": "^1.1.3",
