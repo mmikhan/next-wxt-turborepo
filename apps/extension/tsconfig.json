@@ -7,5 +7,6 @@
     "paths": {
       "@workspace/ui/*": ["../../packages/ui/src/*"]
     },
+    "strictNullChecks": true
   }
 }

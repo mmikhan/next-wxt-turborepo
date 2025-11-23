@@ -12,7 +12,10 @@
     "zip": "NODE_OPTIONS='--no-experimental-webstorage' wxt zip",
     "zip:firefox": "NODE_OPTIONS='--no-experimental-webstorage' wxt zip -b firefox",
     "compile": "tsc --noEmit",
-    "postinstall": "NODE_OPTIONS='--no-experimental-webstorage' wxt prepare"
+    "postinstall": "NODE_OPTIONS='--no-experimental-webstorage' wxt prepare",
+    "lint": "bun x ultracite check",
+    "fix": "bun x ultracite fix",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "react": "catalog:",
@@ -24,6 +27,9 @@
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@wxt-dev/module-react": "^1.1.3",
+    "@biomejs/biome": "catalog:",
+    "lefthook": "catalog:",
+    "ultracite": "catalog:",
     "typescript": "catalog:",
     "wxt": "^0.20.6"
   }
