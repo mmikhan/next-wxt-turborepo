@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import reactLogo from '@/assets/react.svg';
-import wxtLogo from '/wxt.svg';
-import "@workspace/ui/globals.css"; 
-import './App.css';
-import { Button } from '@workspace/ui/components/button';
+import { useState } from "react";
+import reactLogo from "@/assets/react.svg";
+import wxtLogo from "/wxt.svg";
+import "@workspace/ui/globals.css";
+import "./App.css";
+import { Button } from "@workspace/ui/components/button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,17 +11,34 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://wxt.dev" target="_blank" rel="noreferrer">
-          <img src={wxtLogo} className="logo" alt="WXT logo" />
+        <a href="https://wxt.dev" rel="noreferrer" target="_blank">
+          <img
+            alt="WXT logo"
+            className="logo"
+            height="100"
+            src={wxtLogo}
+            width="100"
+          />
         </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href="https://react.dev" rel="noreferrer" target="_blank">
+          <img
+            alt="React logo"
+            className="logo react"
+            height="100"
+            src={reactLogo}
+            width="100"
+          />
         </a>
       </div>
-      <h1 className="text-3xl font-bold underline text-amber-300">WXT + React</h1>
-      <Button variant='destructive'>Button from UI Package</Button>
+      <h1 className="font-bold text-3xl text-amber-300 underline">
+        WXT + React
+      </h1>
+      <Button variant="destructive">Button from UI Package</Button>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button
+          onClick={() => setCount((prevCount) => prevCount + 1)}
+          type="button"
+        >
           count is {count}
         </button>
         <p>

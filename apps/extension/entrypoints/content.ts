@@ -1,6 +1,8 @@
+import { defineContentScript } from "#imports";
+
 export default defineContentScript({
-  matches: ['*://*.google.com/*'],
+  matches: ["*://*.google.com/*"],
   main() {
-    console.log('Hello content.');
+    console.log("Hello content.");
   },
 });
