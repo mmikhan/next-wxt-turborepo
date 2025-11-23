@@ -1,8 +1,5 @@
 @import "@workspace/ui/globals.css";
 
-/* An alternate way to detect classes from UI components pack */
-/* @source "../../../../packages/ui"; */
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
