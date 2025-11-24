@@ -64,7 +64,7 @@ jobs:
       - name: Build Extension (Development)
         run: |
           cd apps/extension
-          NODE_OPTIONS='--no-experimental-webstorage' NODE_ENV=development bun run wxt build --mode development
+          bun run build --mode development
           cd ../..
 
       - name: Create Web App archive
