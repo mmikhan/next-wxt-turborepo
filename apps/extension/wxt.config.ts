@@ -1,5 +1,5 @@
+import { resolve } from "node:path";
 import { defineConfig } from "wxt";
-import { resolve } from 'node:path';
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
@@ -9,6 +9,6 @@ export default defineConfig({
   modules: ["@wxt-dev/module-react"],
   alias: {
     // Only needed for shadcn/ui CLI to add components to the internal package
-    "@workspace/ui": resolve(__dirname, "../packages/ui/src")
-  }
+    "@workspace/ui": resolve(__dirname, "../packages/ui/src"),
+  },
 });
