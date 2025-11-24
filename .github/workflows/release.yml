@@ -89,9 +89,9 @@ jobs:
           NODE_ENV: production
 
       - name: Build Extension (Production)
-        run: bun run build --filter=extension
         env:
           NODE_ENV: production
+        run: bun run build --filter=extension
 
       - name: Build Extension (Development)
         run: |
@@ -118,9 +118,30 @@ jobs:
           zip -r ../../../next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-dev.zip chrome-mv3
           cd ../../..
 
-      - name: Create source archive
+      - name: Create Extension source archive
+        run: |
+          git archive --format=zip --prefix=extension-source/ HEAD:apps/extension -o next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-source.zip
+
+      - name: Create Web App source archive
+        run: |
+          git archive --format=zip --prefix=web-source/ HEAD:apps/web -o next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-web-source.zip
+
+      - name: Create full source archive
         run: |
           git archive --format=zip --prefix=next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}/ HEAD -o next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-source.zip
+
+      - name: Create complete bundle
+        run: |
+          mkdir -p bundle
+          cp next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-prod.zip bundle/
+          cp next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-dev.zip bundle/
+          cp next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-source.zip bundle/
+          cp next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-web.zip bundle/
+          cp next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-web-source.zip bundle/
+          cp next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-source.zip bundle/
+          cd bundle
+          zip -r ../next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-complete-bundle.zip .
+          cd ..
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -131,10 +152,13 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-web.zip
             next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-prod.zip
             next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-dev.zip
+            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-source.zip
+            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-web.zip
+            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-web-source.zip
             next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-source.zip
+            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-complete-bundle.zip
             CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
