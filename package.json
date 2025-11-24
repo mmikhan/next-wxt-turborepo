@@ -9,13 +9,15 @@
     "fix": "turbo run fix fix:root",
     "lint:root": "bun x ultracite@latest check",
     "fix:root": "bun x ultracite@latest fix",
-    "type-check": "turbo run type-check"
+    "type-check": "turbo run type-check",
+    "bump": "bumpp -yqr"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
+    "bumpp": "^10.3.1",
     "lefthook": "catalog:",
-    "ultracite": "catalog:",
-    "turbo": "^2.6.1"
+    "turbo": "^2.6.1",
+    "ultracite": "catalog:"
   },
   "engines": {
     "node": ">=18"
