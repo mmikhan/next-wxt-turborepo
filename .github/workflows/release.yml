@@ -11,7 +11,31 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    # Turbo remote caching configuration (set repository secret TURBO_TOKEN and variable TURBO_TEAM)
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     steps:
+      - name: Cache Turborepo build artifacts (.turbo)
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25.2.1
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
