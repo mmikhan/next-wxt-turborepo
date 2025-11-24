@@ -22,9 +22,17 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Get version from tag
+      - name: Get version (sanitize)
         id: get_version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+        run: |
+          if [[ "$GITHUB_REF" =~ refs/tags/v ]]; then
+            RAW_VERSION="${GITHUB_REF#refs/tags/v}"
+          else
+            # Fallback when running under act or non-tag pushes
+            RAW_VERSION="${GITHUB_REF##*/}"
+          fi
+          SAFE_VERSION=$(echo "$RAW_VERSION" | tr '/ ' '-')
+          echo "VERSION=$SAFE_VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
