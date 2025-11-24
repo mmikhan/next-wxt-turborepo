@@ -1,0 +1,108 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+
+          if [ -z "$PREV_TAG" ]; then
+            echo "## Changes" > CHANGELOG.md
+            echo "" >> CHANGELOG.md
+            git log --pretty=format:"- %s (%h)" >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          else
+            echo "## Changes since $PREV_TAG" > CHANGELOG.md
+            echo "" >> CHANGELOG.md
+            git log $PREV_TAG..HEAD --pretty=format:"- %s (%h)" >> CHANGELOG.md
+            echo "" >> CHANGELOG.md
+          fi
+
+          echo "CHANGELOG<<CHANGELOG_EOF" >> $GITHUB_OUTPUT
+          cat CHANGELOG.md >> $GITHUB_OUTPUT
+          echo "" >> GITHUB_OUTPUT
+          echo "CHANGELOG_EOF" >> $GITHUB_OUTPUT
+
+      - name: Build Web App (Production)
+        run: bun run build --filter=web
+        env:
+          NODE_ENV: production
+
+      - name: Build Extension (Production)
+        run: bun run build --filter=extension
+        env:
+          NODE_ENV: production
+
+      - name: Build Extension (Development)
+        run: |
+          cd apps/extension
+          NODE_OPTIONS='--no-experimental-webstorage' NODE_ENV=development bun run wxt build --mode development
+          cd ../..
+
+      - name: Create Web App archive
+        run: |
+          cd apps/web
+          zip -r ../../next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-web.zip .next
+          cd ../..
+
+      - name: Create Extension Production archive
+        run: |
+          cd apps/extension/.output
+          zip -r ../../../next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-prod.zip chrome-mv3
+          cd ../../..
+
+      - name: Create Extension Development archive
+        run: |
+          cd apps/extension/.output
+          zip -r ../../../next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-dev.zip chrome-mv3-dev || \
+          zip -r ../../../next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-dev.zip chrome-mv3
+          cd ../../..
+
+      - name: Create source archive
+        run: |
+          git archive --format=zip --prefix=next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}/ HEAD -o next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-source.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body: ${{ steps.changelog.outputs.CHANGELOG }}
+          draft: false
+          prerelease: false
+          files: |
+            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-web.zip
+            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-prod.zip
+            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-extension-dev.zip
+            next-wxt-turborepo-${{ steps.get_version.outputs.VERSION }}-source.zip
+            CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
