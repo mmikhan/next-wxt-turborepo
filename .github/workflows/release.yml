@@ -11,12 +11,17 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    # Turbo remote caching configuration (set repository secret TURBO_TOKEN and variable TURBO_TEAM)
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+    # # To use Remote Caching, uncomment the next lines and follow the steps below.
+    # env:
+    #  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+    #  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     steps:
-      - name: Cache Turborepo build artifacts (.turbo)
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Cache turbo build setup
         uses: actions/cache@v4
         with:
           path: .turbo
@@ -24,15 +29,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - name: Setup Node
+      - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
           node-version: 25.2.1
-
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
