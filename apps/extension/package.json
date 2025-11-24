@@ -2,7 +2,7 @@
   "name": "extension",
   "description": "A monorepo extension built with WXT and React.",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "wxt --port 3001",
