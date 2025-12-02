@@ -24,8 +24,7 @@
   },
   "devDependencies": {
     "tailwindcss": "catalog:",
-    "@tailwindcss/postcss": "catalog:",
-    "postcss": "catalog:",
+    "@tailwindcss/vite": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@wxt-dev/module-react": "^1.1.3",
