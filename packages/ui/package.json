@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "bun x ultracite check",
     "fix": "bun x ultracite fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "ui-add": "bun x shadcn@latest add && bun fix src"
   },
   "exports": {
     "./globals.css": "./src/styles/globals.css",

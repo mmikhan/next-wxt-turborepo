@@ -10,7 +10,8 @@
     "lint:root": "bun x ultracite@latest check",
     "fix:root": "bun x ultracite@latest fix",
     "type-check": "turbo run type-check",
-    "bump": "bumpp -yqr"
+    "bump": "bumpp -yqr",
+    "ui-add": "turbo run ui-add"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",

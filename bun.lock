@@ -14,7 +14,7 @@
     },
     "apps/extension": {
       "name": "extension",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "dependencies": {
         "@workspace/ui": "workspace:*",
         "react": "catalog:",
@@ -35,7 +35,7 @@
     },
     "apps/web": {
       "name": "web",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "dependencies": {
         "@workspace/ui": "workspace:*",
         "lucide-react": "catalog:",
@@ -60,7 +60,7 @@
     },
     "packages/tailwind-config": {
       "name": "@workspace/tailwind-config",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "devDependencies": {
         "@biomejs/biome": "catalog:",
         "lefthook": "catalog:",
@@ -70,11 +70,11 @@
     },
     "packages/typescript-config": {
       "name": "@workspace/typescript-config",
-      "version": "1.0.0",
+      "version": "1.1.0",
     },
     "packages/ui": {
       "name": "@workspace/ui",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "dependencies": {
         "@radix-ui/react-dropdown-menu": "^2.1.16",
         "@radix-ui/react-slot": "^1.2.4",
