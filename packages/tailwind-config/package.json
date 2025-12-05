@@ -13,7 +13,6 @@
   "devDependencies": {
     "tailwindcss": "catalog:",
     "@biomejs/biome": "catalog:",
-    "lefthook": "catalog:",
     "ultracite": "catalog:"
   }
 }

@@ -35,7 +35,6 @@
     "@types/react-dom": "catalog:",
     "@workspace/tailwind-config": "workspace:*",
     "@workspace/typescript-config": "workspace:*",
-    "lefthook": "^2.0.4",
     "@biomejs/biome": "catalog:",
     "ultracite": "catalog:",
     "typescript": "catalog:"

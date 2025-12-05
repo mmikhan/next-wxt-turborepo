@@ -27,7 +27,6 @@
     "@types/react-dom": "catalog:",
     "babel-plugin-react-compiler": "catalog:",
     "@biomejs/biome": "catalog:",
-    "lefthook": "catalog:",
     "ultracite": "catalog:",
     "typescript": "catalog:"
   }
