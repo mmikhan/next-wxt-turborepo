@@ -5,9 +5,9 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint lint:root",
+    "check": "turbo run check check:root",
     "fix": "turbo run fix fix:root",
-    "lint:root": "bun x ultracite@latest check",
+    "check:root": "bun x ultracite@latest check",
     "fix:root": "bun x ultracite@latest fix",
     "type-check": "turbo run type-check",
     "bump": "bumpp -yqr",

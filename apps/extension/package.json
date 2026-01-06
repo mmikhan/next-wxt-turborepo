@@ -13,7 +13,7 @@
     "zip:firefox": "wxt zip -b firefox",
     "compile": "tsc --noEmit",
     "postinstall": "wxt prepare",
-    "lint": "bun x ultracite check",
+    "check": "bun x ultracite check",
     "fix": "bun x ultracite fix",
     "type-check": "tsc --noEmit"
   },

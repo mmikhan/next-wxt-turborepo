@@ -6,7 +6,7 @@
     "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "bun x ultracite check",
+    "check": "bun x ultracite check",
     "fix": "bun x ultracite fix",
     "type-check": "next typegen && tsc --noEmit"
   },
